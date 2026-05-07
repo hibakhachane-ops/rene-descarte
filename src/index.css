@@ -1,0 +1,46 @@
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:ital,wght@0,300;0,400;0,600;0,700;1,400&family=Playfair+Display:ital,wght@0,700;1,700&family=UnifrakturMaguntia&family=Pinyon+Script&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Crimson Pro", serif;
+  --font-gothic: "UnifrakturMaguntia", cursive;
+  --font-display: "Playfair Display", serif;
+  --font-script: "Pinyon Script", cursive;
+  
+  --color-parchment: #f1e6d2;
+  --color-burgundy: #4a0404;
+  --color-gold: #c5a059;
+  --color-walnut: #2c1810;
+  --color-ink: #1a1a1a;
+}
+
+body {
+  @apply bg-parchment text-walnut font-serif selection:bg-gold selection:text-burgundy;
+  background-image: url("https://www.transparenttextures.com/patterns/natural-paper.png");
+}
+
+.manuscript-border {
+  border: 4px double var(--color-gold);
+  border-image: linear-gradient(to bottom right, #c5a059, #8b4513) 1;
+  box-shadow: inset 0 0 40px rgba(44, 24, 16, 0.1);
+}
+
+.illuminated-letter::first-letter {
+  @apply float-left text-7xl font-gothic leading-none mr-3 mt-2 text-burgundy;
+  text-shadow: 2px 2px 0px var(--color-gold);
+}
+
+.gold-frame {
+  @apply border-4 border-gold shadow-lg relative;
+  background-image: linear-gradient(45deg, transparent 45%, rgba(197, 160, 89, 0.1) 50%, transparent 55%);
+}
+
+.medieval-title {
+  @apply font-gothic text-burgundy text-center py-6 relative;
+}
+
+.medieval-title::before, .medieval-title::after {
+  content: "❧";
+  @apply mx-4 text-gold;
+}
+
